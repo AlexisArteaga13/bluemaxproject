@@ -65,6 +65,7 @@
             </ul>
           </li>
           <li><a href="#contact">Contact</a></li>
+          <li><a href="{{route('login')}}">Login</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
