@@ -46,13 +46,13 @@ class UsuariosController extends Controller
             $passold= $pas->password;
         }*/
 
-        
+        if($passwordold != $request->password){
         $usuarios = Usuarios::find($request->idusers);
         $usuarios->name= $request->nombre;
         $usuarios->apellidos= $request->apellidos;
-        if($passwordold != $request->password){
+        
         $usuarios->password= bcrypt($request->password);
-        }
+        
         $usuarios->email= $request->correo;
         $usuarios->foto= $request->foto;
         if($usuarios->update())
@@ -62,7 +62,24 @@ class UsuariosController extends Controller
         else{
             return back()->with("error","Ocurrió un error.");
         }
-
+     }
+     else{
+        $usuarios = Usuarios::find($request->idusers);
+        $usuarios->name= $request->nombre;
+        $usuarios->apellidos= $request->apellidos;
+        
+        
+        
+        $usuarios->email= $request->correo;
+        $usuarios->foto= $request->foto;
+        if($usuarios->update())
+        {
+            return back()->with("success","Datos Actualizados.");
+        }
+        else{
+            return back()->with("error","Ocurrió un error.");
+        }
+     }
     }
     public function destroy($id){
         $usuario=Usuarios::find($id);
