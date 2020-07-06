@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace bluemax\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

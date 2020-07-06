@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace bluemax\Http\Controllers;
 
 use Illuminate\Http\Request;
 
@@ -23,6 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('administrable');
+        return view('modulosadmin.escritorio');
     }
 }

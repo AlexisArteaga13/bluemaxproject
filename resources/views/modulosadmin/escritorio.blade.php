@@ -1,6 +1,6 @@
-@extends('administrable.modulosadmin')
+@extends('administrable')
 
-@section('seccion')
+@section('contenido')
 
  <!-- Content Header (Page header) -->
  <div class="content-header">

@@ -18,3 +18,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+// RUTAS PARA LA EMPRESA
+Route::get('/admin/empresa', 'EmpresaController@index')->name('empresa');
+Route::put('/admin/empresa', 'EmpresaController@update')->name('empresa.update');
+// RUTAS PARA LOS USUARIOS
+Route::get('/admin/usuarios', 'UsuariosController@index')->name('usuarios');
+Route::put('/admin/usuarios/update', 'UsuariosController@update')->name('usuarios.update');
+Route::delete('/admin/usuarios/delete/{id?}', 'UsuariosController@destroy')->name('usuario.delete');
+Route::post('/admin/usuarios/crear', 'UsuariosController@store')->name('usuarios.store');
+// *************************** //
