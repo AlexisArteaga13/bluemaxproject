@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/Lima',
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -141,6 +141,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+        //Illuminate\Foundation\Auth\AuthenticatesUsers::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
@@ -171,11 +172,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        bluemax\Providers\AppServiceProvider::class,
+        bluemax\Providers\AuthServiceProvider::class,
+        // bluemax\Providers\BroadcastServiceProvider::class,
+        bluemax\Providers\EventServiceProvider::class,
+        bluemax\Providers\RouteServiceProvider::class,
 
     ],
 
