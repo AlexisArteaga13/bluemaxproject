@@ -38,15 +38,15 @@ class UsuariosController extends Controller
     }
     public function update(Request $request)
     {
-        $passwordold= DB::table("users")->where("id","=",$request->idusers)->first();
+        $passwordold= DB::table("users")->where("id","=",$request->idusers)->get();
     
-        /*echo $passwordold;
+        /*echo $passwordold;*/
         $passold="";
         foreach($passwordold as $pas){
             $passold= $pas->password;
-        }*/
+        }
 
-        if($passwordold != $request->password){
+        if($passold != $request->password){
         $usuarios = Usuarios::find($request->idusers);
         $usuarios->name= $request->nombre;
         $usuarios->apellidos= $request->apellidos;
