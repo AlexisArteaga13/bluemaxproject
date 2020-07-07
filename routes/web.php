@@ -11,13 +11,14 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('index');
-});
+});*/
+Route::get('/', 'IndexController@index')->name('index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
 // RUTAS PARA LA EMPRESA
 Route::get('/admin/empresa', 'EmpresaController@index')->name('empresa');
 Route::put('/admin/empresa', 'EmpresaController@update')->name('empresa.update');

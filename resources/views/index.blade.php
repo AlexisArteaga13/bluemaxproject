@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>BizPage Bootstrap Template</title>
+  <title>{{$empresa->nombre}}</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
+  <link href="{{asset('../storage/app/'.$empresa->icono)}}" rel="icon">
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -44,7 +44,7 @@
     <div class="container-fluid">
 
       <div id="logo" class="pull-left">
-        <h1><a href="#intro" class="scrollto">BizPage</a></h1>
+        <h1><a href="#" class="scrollto">{{$empresa->nombre}}</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
       </div>
@@ -64,8 +64,8 @@
               <li><a href="#">Drop Down 5</a></li>
             </ul>
           </li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="{{route('login')}}">Login</a></li>
+          <li><a href="#contact">Contáctanos</a></li>
+          <!--<li><a href="{{route('login')}}">Login</a></li>-->
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -740,8 +740,8 @@
       <div class="container">
 
         <div class="section-header">
-          <h3>Contact Us</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+          <h3>Contáctanos</h3>
+          <p>Crece con nosotros, no descansamos hasta verte crecer.</p>
         </div>
 
         <div class="row contact-info">
@@ -749,24 +749,24 @@
           <div class="col-md-4">
             <div class="contact-address">
               <i class="ion-ios-location-outline"></i>
-              <h3>Address</h3>
-              <address>A108 Adam Street, NY 535022, USA</address>
+              <h3>Ubícanos</h3>
+              <address>{{$empresa->direccion}}</address>
             </div>
           </div>
 
           <div class="col-md-4">
             <div class="contact-phone">
               <i class="ion-ios-telephone-outline"></i>
-              <h3>Phone Number</h3>
-              <p><a href="tel:+155895548855">+1 5589 55488 55</a></p>
+              <h3>Llámanos</h3>
+              <p><a href="tel:+155895548855">{{$empresa->telefono}}</a></p>
             </div>
           </div>
 
           <div class="col-md-4">
             <div class="contact-email">
               <i class="ion-ios-email-outline"></i>
-              <h3>Email</h3>
-              <p><a href="mailto:info@example.com">info@example.com</a></p>
+              <h3>Escríbenos</h3>
+              <p><a href="mailto:{{$empresa->correo}}">{{$empresa->correo}}</a></p>
             </div>
           </div>
 
@@ -794,7 +794,7 @@
               <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
               <div class="validation"></div>
             </div>
-            <div class="text-center"><button type="submit">Send Message</button></div>
+            <div class="text-center"><button type="submit">Enviar Mensaje</button></div>
           </form>
         </div>
 
@@ -812,29 +812,28 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-info">
-            <h3>BizPage</h3>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
+            <h3>{{$empresa->nombre}}</h3>
+            <p>Empresa dedicada al rubro del desarrollo de software, no descansamos hasta verte crecer.</p>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
+            <h4>Ubícanos</h4>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.0123376261217!2d-79.83142378585679!3d-6.768348968067371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x904ce92ad630749d%3A0x3b76b60b466e8916!2sPedro%20Ruiz%2C%20Chiclayo%2014001!5e0!3m2!1ses!2spe!4v1594088118965!5m2!1ses!2spe" width="250" height="250" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+          
+            <!--<ul>
               <li><i class="ion-ios-arrow-right"></i> <a href="#">Home</a></li>
               <li><i class="ion-ios-arrow-right"></i> <a href="#">About us</a></li>
               <li><i class="ion-ios-arrow-right"></i> <a href="#">Services</a></li>
               <li><i class="ion-ios-arrow-right"></i> <a href="#">Terms of service</a></li>
               <li><i class="ion-ios-arrow-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
+            </ul>-->
           </div>
-
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h4>Contact Us</h4>
+            <h4>Contáctanos</h4>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+              {{$empresa->direccion}}<br>
+              <strong>Llámanos:</strong> {{$empresa->telefono}}<br>
+              <strong>Escríbenos:</strong> {{$empresa->correo}}<br>
             </p>
 
             <div class="social-links">
