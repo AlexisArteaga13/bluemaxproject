@@ -46,7 +46,7 @@ class EmpresaController extends Controller
             foreach($datosuser as $datos){
                 $img_old= $datos->icono;
        }
-        //Storage::delete($img_old);
+        Storage::delete($img_old);
         $empresa = Empresa::find($request->id);
         $empresa->nombre= $request->nombre;
          $empresa->direccion= $request->direccion;
