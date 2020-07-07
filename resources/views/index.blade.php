@@ -662,12 +662,12 @@
         @foreach($equipo as $equipo)
           <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
             <div class="member">
-              <img width="250" height="220" src="{{asset('../storage/app/'.$equipo->foto)}}" class="img-fluid" alt="">
+              <img  src="{{asset('../storage/app/'.$equipo->foto)}}" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
                   <h5 class="titulos">{{$equipo->apellidos}}</h5>
                   <h6>{{$equipo->name}}</h6>
-                  <!--<span>Accountant</span>-->
+                  <!--width="250" height="220"<span>Accountant</span>-->
                   <div class="social">
                     <a href=""><i class="fa fa-twitter"></i></a>
                     <a href=""><i class="fa fa-facebook"></i></a>
