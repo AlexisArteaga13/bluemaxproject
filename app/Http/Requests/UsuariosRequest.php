@@ -26,7 +26,7 @@ class UsuariosRequest extends FormRequest
         return [
             'nombre' => 'required|string|max:255',
             'apellidos' => 'required|string|max:255',
-            //'foto' => 'string|max:255',
+            'foto' => 'image|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ];

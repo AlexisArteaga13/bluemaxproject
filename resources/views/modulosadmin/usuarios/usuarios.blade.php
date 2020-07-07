@@ -33,7 +33,9 @@
                         
                     </div>
                 </div>
-               
+                
+                <!--<img  src="{{asset('../storage/app/usuarios/H4XGYvlHfSpEiHPMifSwOt15w9CfLctjs5jBDqBG.jpeg')}}">
+                    -->        
                 <br>
                 @if(session()->has('error'))
                         <div class="alert alert-warning">{{ session('error')}}</div>
@@ -67,10 +69,9 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-
+                                    
                                 <div class="card-header">
                                     <h3 class="card-title">Datos De Usuarios</h3>
-
                                     <div class="card-tools">
                                         <button type="button" class="btn btn-tool" data-card-widget="collapse"
                                             data-toggle="tooltip" title="Collapse">
@@ -110,7 +111,7 @@
                                                 <td>{{ $value ->name}}</td>
                                                 <td>{{ $value ->apellidos}}</td>
                                                 <td>{{ $value ->email}}</td>
-                                                <td>{{ $value ->foto}}</td>
+                                                <td><img width="50px" src="{{asset('../storage/app/'.$value->foto)}}"></td>
 
 
 
@@ -172,7 +173,7 @@
 
         <div class="modal-content">
 
-            <form action="{{route('usuarios.store')}}" method="post">
+            <form action="{{route('usuarios.store')}}" method="post" enctype="multipart/form-data">
                 {{method_field('post')}}
                 {{csrf_field()}}
                 <div class="modal-body">
@@ -186,7 +187,7 @@
 
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                 aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Actualizar Datos</h4>
+                        <h4 class="modal-title">Nuevo Usuario</h4>
 
                     </div>
 
@@ -224,6 +225,20 @@
                                     @if ($errors->has('apellidos'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('apellidos') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group{{ $errors->has('foto') ? ' has-error' : '' }}">
+                                <label for="name" class="col-md-4 control-label">Imagen de perfil:</label>
+
+                                <div class="col-md-12">
+                                    <input id="foto" type="file" class="form-control" name="foto"
+                                        value="{{ old('foto') }}"  autofocus>
+
+                                    @if ($errors->has('foto'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('foto') }}</strong>
                                     </span>
                                     @endif
                                 </div>
@@ -374,7 +389,7 @@ MODAL EDITAR USUARIO
 
         <div class="modal-content">
 
-            <form action="{{route('usuarios.update')}}" method="post">
+            <form action="{{route('usuarios.update')}}" method="post" enctype="multipart/form-data">
                 {{method_field('put')}}
                 {{csrf_field()}}
                 <div class="modal-body">
@@ -426,6 +441,20 @@ MODAL EDITAR USUARIO
                                     @if ($errors->has('apellidos'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('apellidos') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group{{ $errors->has('foto') ? ' has-error' : '' }}">
+                                <label for="name" class="col-md-4 control-label">Imagen de perfil:</label>
+
+                                <div class="col-md-12">
+                                    <input id="foto" type="file" class="form-control" name="foto"
+                                        value="{{ old('foto') }}"  autofocus>
+
+                                    @if ($errors->has('foto'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('foto') }}</strong>
                                     </span>
                                     @endif
                                 </div>
