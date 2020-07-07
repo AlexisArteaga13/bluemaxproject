@@ -93,7 +93,7 @@
                                                 <th>Teléfono</th>
                                                 <th>Correo</th>
                                                 
-                                                <th>URL ícono</th>
+                                                <th>Ícono</th>
                                                 
                                                 <th>Opciones</th>
 
@@ -110,7 +110,7 @@
                                                 <td>{{ $value ->telefono}}</td>
                                                 <td>{{ $value ->correo}}</td>
                                                
-                                                <td>{{ $value ->icono}}</td>
+                                                <td><img width="50px" src="{{asset('../storage/app/'.$value->icono)}}"></td>
                                                
                                                 <td>
                                                
@@ -171,7 +171,7 @@ MODAL EDITAR USUARIO
 
         <div class="modal-content">
 
-            <form action="{{route('empresa.update')}}" method="post">
+            <form action="{{route('empresa.update')}}" method="post" enctype="multipart/form-data">
                 {{method_field('put')}}
                 {{csrf_field()}}
                 <div class="modal-body">
@@ -271,11 +271,11 @@ MODAL EDITAR USUARIO
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="basic-addon1"><i
-                                                class="fas fa-school"></i>URL ícono</span>
+                                                class="fas fa-school"></i>Ícono</span>
                                     </div>
-                                    <textarea type="text" name="icono" id="icono" class="form-control"
-                                        placeholder="URL ícono" aria-label="Username"
-                                        aria-describedby="basic-addon1"></textarea>
+                                    <input type="file" name="icono" id="icono" class="form-control"
+                                        placeholder="ícono" aria-label="Username"
+                                        aria-describedby="basic-addon1">
                                 </div>
 
                             </div>

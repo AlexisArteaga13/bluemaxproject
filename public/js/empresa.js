@@ -6,7 +6,7 @@ $('#modalEditarEscuela').on('show.bs.modal', function (event) {
     //var eslogan = button.data('eslogan') 
     var telefono = button.data('telefono') 
    // var urlvideo = button.data('urlvideo') 
-    var urlicono = button.data('urlicono') 
+   // var urlicono = button.data('urlicono') 
     //var urlmapa = button.data('urlmapa') 
     var id = button.data('id') 
     var modal = $(this)
@@ -17,7 +17,7 @@ $('#modalEditarEscuela').on('show.bs.modal', function (event) {
     modal.find('.modal-body #telefono').val(telefono);
     modal.find('.modal-body #id').val(id);
     //modal.find('.modal-body #urlvideo').val(urlvideo);
-    modal.find('.modal-body #icono').val(urlicono);
+    //modal.find('.modal-body #icono').val(urlicono);
    // modal.find('.modal-body #urlmapa').val(urlmapa);
    // modal.find('.modal-body #eslogan').val(eslogan);
 })
