@@ -28,3 +28,5 @@ Route::put('/admin/usuarios/update', 'UsuariosController@update')->name('usuario
 Route::delete('/admin/usuarios/delete/{id?}', 'UsuariosController@destroy')->name('usuario.delete');
 Route::post('/admin/usuarios/crear', 'UsuariosController@store')->name('usuarios.store');
 // *************************** //
+// AJAX DE FORMULARIO
+Route::post('/ajaxcorreo', 'IndexController@correo')->name('correo');

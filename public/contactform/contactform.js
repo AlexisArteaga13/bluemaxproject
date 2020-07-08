@@ -6,6 +6,7 @@ jQuery(document).ready(function($) {
     var f = $(this).find('.form-group'),
       ferror = false,
       emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
+      //numerotel = /^([0-9])*$/i;
 
     f.children('input').each(function() { // run all inputs
 
@@ -40,7 +41,7 @@ jQuery(document).ready(function($) {
               ferror = ierror = true;
             }
             break;
-
+       
           case 'checked':
             if (! i.is(':checked')) {
               ferror = ierror = true;
@@ -53,6 +54,11 @@ jQuery(document).ready(function($) {
               ferror = ierror = true;
             }
             break;
+          /*  case 'telefono':
+              if (!numerotel.test(i.val())) {
+                ferror = ierror = true;
+            }
+          break;*/
         }
         i.next('.validation').html((ierror ? (i.attr('data-msg') !== undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
       }
@@ -92,7 +98,7 @@ jQuery(document).ready(function($) {
     else var str = $(this).serialize();
     var action = $(this).attr('action');
     if( ! action ) {
-      action = 'contactform/contactform.php';
+      action = 'ajaxcorreo';
     }
     $.ajax({
       type: "POST",
