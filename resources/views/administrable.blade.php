@@ -321,7 +321,7 @@
             </li>
            
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="{{route('productos')}}" class="nav-link">
               
               <i class="nav-icon fas fa-person-booth"></i>
                 <p>
@@ -494,6 +494,7 @@
 <script src="{{asset('plugins/sparklines/sparkline.js')}}"></script>
 
  <!-- ******************************************************!-->
+  <script src="{{asset('js/productos.js')}}"></script>
   <script src="{{asset('js/encabezados.js')}}"></script>
   <script src="{{asset('js/empresa.js')}}"></script>
   <script src="{{asset('js/usuarios.js')}}"></script>

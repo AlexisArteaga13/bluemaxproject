@@ -50,3 +50,8 @@ Route::get('/admin/categorias','CategoriaController@index')->name('categorias');
 Route::put('/admin/categorias/update','CategoriaController@update')->name('categorias.update');
 Route::delete('/admin/categorias/delete/{id?}','CategoriaController@destroy')->name('categorias.delete');
 Route::post('/admin/categorias/crear','CategoriaController@store')->name('categorias.store');
+// RUTAS PARA PRODUCTOS
+Route::get('/admin/productos','ProductosController@index')->name('productos');
+Route::put('/admin/productos/update','ProductosController@update')->name('productos.update');
+Route::delete('/admin/productos/delete/{id?}','ProductosController@destroy')->name('productos.delete');
+Route::post('/admin/productos/crear','ProductosController@store')->name('productos.store');

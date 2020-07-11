@@ -4,7 +4,7 @@ namespace bluemax\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use bluemax\Productos;
-use bluemax\Http\Requests\ProductoRequest;
+use bluemax\Http\Requests\ProductosRequest;
 use Illuminate\Support\Facades\Storage;
 class ProductosController extends Controller
 {
@@ -16,20 +16,20 @@ class ProductosController extends Controller
 
     public function index(Request $request)
     {
-
-        $datos = DB::table("seccion_encabezado")->get();
-        return view('modulosadmin.seccionencabezado.encabezado',compact('datos'));
+        $categoria = DB::table('categoria')->get();
+        $datos = DB::table("producto as p")->join('categoria as c',"c.id","p.id")->select('p.id as id','p.nombreproducto as nombreproducto','p.descripcion as descripcion','p.imagen as imagen','c.id as idcategoria','c.nombre as nombrecat')->get();
+        return view('modulosadmin.productos.productos',compact('datos','categoria'));
     }
 
-    public function store(SeccionEncabezadoRequest $request){
+    public function store(ProductosRequest $request){
      
      // dd($request->file('foto')->store("usuarios"));
-        $nuevo = new SeccionEncabezado;
-        $nuevo->titulo=$request->titulo;
+       $nuevo = new Productos;
+        $nuevo->nombreproducto=$request->nombre;
         $nuevo->descripcion=$request->descripcion;
-        $nuevo->posicion= $request->posicion;
+        $nuevo->idcategoria= $request->categoria;
         
-        $nuevo->imagen= $request->file('imagen')->store("encabezados");
+        $nuevo->imagen= $request->file('imagen')->store("productos");
       //$nuevo->foto=asset(Storage::disk('public')->put('image',$request->file('foto')));
        // Storage::disk('public')->put('image',$request->file('foto'))
         if($nuevo->save()){
@@ -39,9 +39,9 @@ class ProductosController extends Controller
             return back()->with("error","Ocurrió un error.");
         }
     }
-    public function update(SeccionEncabezadoRequest $request)
+    public function update(ProductosRequest $request)
     {
-        $imgold= DB::table("seccion_encabezado")->where("id","=",$request->id)->get();
+        $imgold= DB::table("producto")->where("id","=",$request->id)->get();
         $img_old="";
         /*echo $passwordold;*/
         
@@ -52,11 +52,11 @@ class ProductosController extends Controller
        
        
             if(empty($request->imagen)){
-        $nuevo = SeccionEncabezado::find($request->id);
+        $nuevo = Productos::find($request->id);
        
-        $nuevo->titulo=$request->titulo;
+        $nuevo->nombreproducto=$request->nombre;
         $nuevo->descripcion=$request->descripcion;
-        $nuevo->posicion= $request->posicion;
+        $nuevo->idcategoria= $request->categoria;
         
        // $nuevo->imagen= $request->file('imagen')->store("encabezados");
         //$usuarios->foto= $request->foto;
@@ -72,10 +72,12 @@ class ProductosController extends Controller
      else{
         Storage::delete($img_old);
         $nuevo = SeccionEncabezado::find($request->id);
+        $nuevo = Productos::find($request->id);
        
-        $nuevo->titulo=$request->titulo;
+        $nuevo->nombreproducto=$request->nombre;
         $nuevo->descripcion=$request->descripcion;
-        $nuevo->posicion= $request->posicion;
+        $nuevo->idcategoria= $request->categoria;
+        $nuevo->imagen= $request->file('imagen')->store("productos");
         //$usuarios->foto= $request->foto;
         if($nuevo->update())
         {
@@ -91,8 +93,8 @@ class ProductosController extends Controller
     }  
     
     public function destroy($id){
-        $eliminar=SeccionEncabezado::find($id);
-        $imgold= DB::table("seccion_encabezado")->where("id","=",$id)->get();
+        $eliminar=Productos::find($id);
+        $imgold= DB::table("producto")->where("id","=",$id)->get();
         $img_old="";
         /*echo $passwordold;*/
         
