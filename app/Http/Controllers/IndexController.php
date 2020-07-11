@@ -13,8 +13,12 @@ class IndexController extends Controller
     public function index(){
         $empresa=DB::table("empresa")->first();
         $equipo= DB::table("users")->get();
-        return view("index",compact("empresa","equipo"));
+        $encabezados= DB::table("seccion_encabezado")->get();
+        $nosotros = DB::table("seccion_nosotros")->get();
+        $servicios = DB::table("seccion_servicios")->get();
+        return view("index",compact("empresa","equipo","encabezados","nosotros","servicios"));
     }
+
     public function correo(Request $request){
         
         if($request->ajax()){

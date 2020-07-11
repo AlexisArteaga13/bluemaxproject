@@ -270,11 +270,11 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="{{route('encabezados')}}" class="nav-link">
                 <i class="nav-icon fas fa-school"></i>
                 <p>
 
-                 SECCIÓN HOME
+                 Sección encabezado
 
                 </p>
               </a>
@@ -291,20 +291,20 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="{{route('nosotros')}}" class="nav-link">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
-                  SECCIÓN ABOUT US
-                  <span class="right badge badge-danger">New</span>
+                  Sección nosotros
+                 
                 </p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="{{route('servicios')}}" class="nav-link">
               
                 <i class="nav-icon fas fa-people-arrows"></i>
                 <p>
-                  SECCIÓN SERVICIOS
+                  Sección servicios
                   
                 </p>
               </a>
@@ -314,7 +314,7 @@
               
                 <i class="nav-icon fas fa-people-arrows"></i>
                 <p>
-                  SECCIÓN PORTAFOLIO
+                  Categorías
                   
                 </p>
               </a>
@@ -325,7 +325,7 @@
               
               <i class="nav-icon fas fa-person-booth"></i>
                 <p>
-                  SECCIÓN EQUIPO
+                  Productos
                   
                 </p>
               </a>
@@ -494,7 +494,7 @@
 <script src="{{asset('plugins/sparklines/sparkline.js')}}"></script>
 
  <!-- ******************************************************!-->
-  <script src="{{asset('js/pensiones.js')}}"></script>
+  <script src="{{asset('js/encabezados.js')}}"></script>
   <script src="{{asset('js/empresa.js')}}"></script>
   <script src="{{asset('js/usuarios.js')}}"></script>
   <script src="{{asset('js/categoria.js')}}"></script>

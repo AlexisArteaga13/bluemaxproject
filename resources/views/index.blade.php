@@ -27,6 +27,16 @@
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
 <style>
+  .padre {
+    align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.hijo {
+  padding: 10px;
+  margin: 10px;
+ 
+}
 .titulos{
   color: #ffffff !important;
 }
@@ -48,19 +58,19 @@
     <div class="container-fluid">
 
       <div id="logo" class="pull-left">
-        <h1><a href="#" class="scrollto">{{$empresa->nombre}}</a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
+      <a href="#intro"><img src="{{asset('../storage/app/'.$empresa->icono)}}" alt="" title="" /></a>
+        <!-- Uncomment below if you prefer to use an image logo<h1><a href="#" class="scrollto">{{$empresa->nombre}}</a></h1> -->
         <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
       </div>
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="#intro">Home</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li class="menu-has-children"><a href="">Drop Down</a>
+          <li class="menu-active"><a href="#intro">Inicio</a></li>
+          <li><a href="#about">Nosotros</a></li>
+          <li><a href="#services">Nuestros <br>Servicios</a></li>
+          <li><a href="#portfolio">Esto <br>hacemos</a></li>
+          <li><a href="#team">Nuestro<br>equipo</a></li>
+          <li class="menu-has-children"><a href="#">Drop Down</a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
               <li><a href="#">Drop Down 3</a></li>
@@ -86,71 +96,31 @@
 
         <div class="carousel-inner" role="listbox">
 
+          @foreach($encabezados as $en)
+          @if($en->posicion == "A")
           <div class="carousel-item active">
-            <div class="carousel-background"><img src="img/intro-carousel/1.jpg" alt=""></div>
+            <div class="carousel-background"><img src="{{asset('../storage/app/'.$en->imagen)}}" alt=""></div>
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2>We are professional</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <a href="#featured-services" class="btn-get-started scrollto">Get Started</a>
+                <h2>{{$en->titulo}}</h2>
+                <p>{{$en->descripcion}}</p>
+                <a href="https://wa.link/41p2gj" class="btn-get-started scrollto">Escríbenos</a>
               </div>
             </div>
           </div>
-
-          <div class="carousel-item">
-            <div class="carousel-background"><img src="img/intro-carousel/2.jpg" alt=""></div>
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>At vero eos et accusamus</h2>
-                <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut.</p>
-                <a href="#featured-services" class="btn-get-started scrollto">Get Started</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="carousel-background"><img src="img/intro-carousel/3.jpg" alt=""></div>
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>Temporibus autem quibusdam</h2>
-                <p>Beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt omnis iste natus error sit voluptatem accusantium.</p>
-                <a href="#featured-services" class="btn-get-started scrollto">Get Started</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="carousel-background"><img src="img/intro-carousel/4.jpg" alt=""></div>
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>Nam libero tempore</h2>
-                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum.</p>
-                <a href="#featured-services" class="btn-get-started scrollto">Get Started</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-item">
-            <div class="carousel-background"><img src="img/intro-carousel/5.jpg" alt=""></div>
-            <div class="carousel-container">
-              <div class="carousel-content">
-                <h2>Magnam aliquam quaerat</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <a href="#featured-services" class="btn-get-started scrollto">Get Started</a>
-              </div>
-            </div>
-          </div>
+        @endif
+        @endforeach
 
         </div>
 
         <a class="carousel-control-prev" href="#introCarousel" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon ion-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
+          <span class="sr-only">Anterior</span>
         </a>
 
         <a class="carousel-control-next" href="#introCarousel" role="button" data-slide="next">
           <span class="carousel-control-next-icon ion-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
+          <span class="sr-only">Siguiente</span>
         </a>
 
       </div>
@@ -163,15 +133,18 @@
       Featured Services Section
     ============================-->
     <section id="featured-services">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-4 box">
-            <i class="ion-ios-bookmarks-outline"></i>
-            <h4 class="title"><a href="">Lorem Ipsum Delino</a></h4>
-            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+      <div class="container padre">
+        <div class="row ">
+        @foreach($encabezados as $en)
+          @if($en->posicion != "A")
+          <div class="col-lg-4 box hijo">
+            <img  src="{{asset('../storage/app/'.$en->imagen)}}" width="32px" height="32px">
+            <h4 class="title"><a href="">{{$en->titulo}}</a></h4>
+            <p class="description">{{$en->descripcion}}</p>
           </div>
-
+          @endif
+          @endforeach
+<!--
           <div class="col-lg-4 box box-bg">
             <i class="ion-ios-stopwatch-outline"></i>
             <h4 class="title"><a href="">Dolor Sitema</a></h4>
@@ -182,8 +155,7 @@
             <i class="ion-ios-heart-outline"></i>
             <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
             <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-          </div>
-
+          </div>-->
         </div>
       </div>
     </section><!-- #featured-services -->
@@ -195,32 +167,47 @@
       <div class="container">
 
         <header class="section-header">
-          <h3>About Us</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <h3>Nosotros</h3>
+          <p>Somos una empresa ligada al desarrollo de software, compuesto por personal altamente calificado para lograr la finalización y satisfacción del cliente en la encomendación de sus proyectos.
+          </p>
+          <p>Tenemos como responsabilidad hacer crecer tu negocio, y no descansamos hasta conseguirlo.</p>
         </header>
 
-        <div class="row about-cols">
-
-          <div class="col-md-4 wow fadeInUp">
+        <div class="row about-cols padre">
+          @foreach($nosotros as $nosotros)
+          <div class="col-md-3 wow fadeInUp hijo">
             <div class="about-col">
               <div class="img">
-                <img src="img/about-mission.jpg" alt="" class="img-fluid">
-                <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
+                <img src="{{asset('../storage/app/'.$nosotros->imagen)}}" alt="" class="img-fluid">
+                <div class="icon"><img src="{{asset('../storage/app/'.$nosotros->icono)}}" height="32px" wight="32px"></div>
               </div>
-              <h2 class="title"><a href="#">Our Mission</a></h2>
+              <h2 class="title"><a href="#">{{$nosotros->titulo}}</a></h2>
               <p>
-                Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                {{$nosotros->descripcion}}
               </p>
             </div>
           </div>
-
+          @endforeach
+    <!--
+      <div class="col-md-4 wow fadeInUp">
+            <div class="about-col">
+              <div class="img">
+                <img src="" alt="" class="img-fluid">
+                <div class="icon"><i class="ion-ios-speedometer-outline"></i></div>
+              </div>
+              <h2 class="title"><a href="#"></a></h2>
+              <p>
+               
+              </p>
+            </div>
+          </div>
           <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
             <div class="about-col">
               <div class="img">
                 <img src="img/about-plan.jpg" alt="" class="img-fluid">
                 <div class="icon"><i class="ion-ios-list-outline"></i></div>
               </div>
-              <h2 class="title"><a href="#">Our Plan</a></h2>
+              <h2 class="title"><a href="#">Nuestro Plan</a></h2>
               <p>
                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem  doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
               </p>
@@ -233,13 +220,13 @@
                 <img src="img/about-vision.jpg" alt="" class="img-fluid">
                 <div class="icon"><i class="ion-ios-eye-outline"></i></div>
               </div>
-              <h2 class="title"><a href="#">Our Vision</a></h2>
+              <h2 class="title"><a href="#">Nuestra Visión</a></h2>
               <p>
                 Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores eos qui ratione voluptatem sequi nesciunt Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.
               </p>
             </div>
           </div>
-
+-->
         </div>
 
       </div>
@@ -251,13 +238,27 @@
     <section id="services">
       <div class="container">
 
-        <header class="section-header wow fadeInUp">
-          <h3>Services</h3>
-          <p>Laudem latine persequeris id sed, ex fabulas delectus quo. No vel partiendo abhorreant vituperatoribus, ad pro quaestio laboramus. Ei ubique vivendum pro. At ius nisl accusam lorenta zanos paradigno tridexa panatarel.</p>
+        <header class="section-header">
+          <h3>Servicios</h3>
+          <p>Te brindamos el mejor servicio, una constante comunicación directa, atendiendo todas tus solicitudes, desarrollando software a tu medida .</p>
         </header>
 
-        <div class="row">
-
+        <div class="row about-cols padre">
+          @foreach($servicios as $ser)
+          <div class="col-md-3 wow fadeInUp hijo">
+            <div class="about-col">
+              <div class="img">
+                <img src="{{asset('../storage/app/'.$ser->imagen)}}" alt="" class="img-fluid">
+                <div class="icon"><a href="https://wa.link/41p2gj"><i class="fa fa-whatsapp"></i></a></div>
+              </div>
+              <h2 class="title"><a href="#"></a>{{$ser->titulo}}</h2>
+              <p>
+                {{$ser->descripcion}}
+              </p>
+            </div>
+          </div>
+          @endforeach
+<!--
           <div class="col-lg-4 col-md-6 box wow bounceInUp" data-wow-duration="1.4s">
             <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
             <h4 class="title"><a href="">Lorem Ipsum</a></h4>
@@ -288,7 +289,7 @@
             <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
             <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
           </div>
-
+-->
         </div>
 
       </div>
@@ -299,9 +300,10 @@
     ============================-->
     <section id="call-to-action" class="wow fadeIn">
       <div class="container text-center">
-        <h3>Call To Action</h3>
-        <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <a class="cta-btn" href="#">Call To Action</a>
+        <h3>Innova con nosotros</h3>
+        <p> Implementa tus propias aplicaciones móviles integradas con tu web y aplicaciones de escritorio, lograrás optimizar tu negocio, atención rápida a tus clientes brindandoles calidad en servicio y fidelidad de parte de ellos.</p>
+        <a class="cta-btn" href="https://wa.link/41p2gj">Comunícate con nosotros vía whatsapp</a>
+        <p></p>
       </div>
     </section><!-- #call-to-action -->
 
@@ -312,33 +314,33 @@
       <div class="container">
 
         <header class="section-header">
-          <h3>Our Skills</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
+          <h3>Nuestras habilidades</h3>
+          <p>Desarrollamos e integramos aplicaciones a medida, atendemos todos los requerimientos que solicites, siempre con tu participación constante, manteniendote al tanto del avance de tu proyecto, tenemos los mejores precios del mercado ofreciendote un buen software para tu fácil uso y acceso desde cualquier parte del mundo.</p>
         </header>
 
         <div class="skills-content">
 
           <div class="progress">
             <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-              <span class="skill">HTML <i class="val">100%</i></span>
+              <span class="skill">APPS MÓVILES<i class="val">100%</i></span>
             </div>
           </div>
 
           <div class="progress">
-            <div class="progress-bar bg-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-              <span class="skill">CSS <i class="val">90%</i></span>
+            <div class="progress-bar bg-info" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill">DISEÑO Y DESARROLLO WEB <i class="val">100%</i></span>
             </div>
           </div>
 
           <div class="progress">
-            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-              <span class="skill">JavaScript <i class="val">75%</i></span>
+            <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill">APLICACIONES DE ESCRITORIO <i class="val">100%</i></span>
             </div>
           </div>
 
           <div class="progress">
-            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100">
-              <span class="skill">Photoshop <i class="val">55%</i></span>
+            <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill">ATENCIÓN Y SOPORTE 24 HRS. <i class="val">100%</i></span>
             </div>
           </div>
 
@@ -354,36 +356,35 @@
       <div class="container">
 
         <header class="section-header">
-          <h3>Facts</h3>
-          <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
-        </header>
-
+          <h3>ESTO ES PARA TÍ</h3>
+          </header>
+       
         <div class="row counters">
 
   				<div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">274</span>
-            <p>Clients</p>
+            <span data-toggle="counter-up">4</span>
+            <p>Servicios tu disposición</p>
   				</div>
 
           <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">421</span>
-            <p>Projects</p>
+            <span data-toggle="counter-up">100</span>
+            <p>De garantía</p>
   				</div>
 
           <div class="col-lg-3 col-6 text-center">
             <span data-toggle="counter-up">1,364</span>
-            <p>Hours Of Support</p>
+            <p>De soporte y atención</p>
   				</div>
 
           <div class="col-lg-3 col-6 text-center">
-            <span data-toggle="counter-up">18</span>
-            <p>Hard Workers</p>
+            <span data-toggle="counter-up">4 </span>
+            <p>Asesores brindandote su conocimiento, para innovar en tu negocio.</p>
   				</div>
 
   			</div>
 
         <div class="facts-img">
-          <img src="img/facts-img.png" alt="" class="img-fluid">
+          <img src="https://www.aner.com/images/software-escritorio-online-app-sistemas-web.png" alt="" class="img-fluid">
         </div>
 
       </div>
@@ -396,15 +397,15 @@
       <div class="container">
 
         <header class="section-header">
-          <h3 class="section-title">Our Portfolio</h3>
+          <h3 class="section-title">Esto hacemos</h3>
         </header>
 
         <div class="row">
           <div class="col-lg-12">
             <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
+              <li data-filter="*" class="filter-active">Todo</li>
+              <li data-filter=".filter-app">Móviles</li>
+              <li data-filter=".filter-card">Escritorio</li>
               <li data-filter=".filter-web">Web</li>
             </ul>
           </div>
@@ -421,8 +422,8 @@
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="#">App 1</a></h4>
-                <p>App</p>
+                <h4><a href="#">Para Android e IoS</a></h4>
+                <p>A la vanguardia de la tecnología.</p>
               </div>
             </div>
           </div>
@@ -436,8 +437,8 @@
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="#">Web 3</a></h4>
-                <p>Web</p>
+                <h4><a href="#">Buen diseño</a></h4>
+                <p>Ofrecemos un diseño a tu medida.</p>
               </div>
             </div>
           </div>
@@ -451,8 +452,8 @@
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="#">App 2</a></h4>
-                <p>App</p>
+                <h4><a href="#">App Móvil Integrada</a></h4>
+                <p>Integramos tu app móvil con tu web.</p>
               </div>
             </div>
           </div>
@@ -481,8 +482,8 @@
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="#">Web 2</a></h4>
-                <p>Web</p>
+                <h4><a href="#">Fácil acceso</a></h4>
+                <p>Interfaz amigable, para su buen uso.</p>
               </div>
             </div>
           </div>
@@ -496,8 +497,8 @@
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="#">App 3</a></h4>
-                <p>App</p>
+                <h4><a href="#">App amigable</a></h4>
+                <p>Un buen diseño para tu uso.</p>
               </div>
             </div>
           </div>
@@ -505,14 +506,14 @@
           <div class="col-lg-4 col-md-6 portfolio-item filter-card wow fadeInUp">
             <div class="portfolio-wrap">
               <figure>
-                <img src="img/portfolio/card1.jpg" class="img-fluid" alt="">
-                <a href="img/portfolio/card1.jpg" class="link-preview" data-lightbox="portfolio" data-title="Card 1" title="Preview"><i class="ion ion-eye"></i></a>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR3P22cjsxcWeBEFFZYFWN2r8za7su35udFLw&usqp=CAU" class="img-fluid" alt="">
+                <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSN6E9_6RNdzlU2qxw2KCViSFTNDJWpA4jgIg&usqp=CAU" class="link-preview" data-lightbox="portfolio" data-title="Card 1" title="Preview"><i class="ion ion-eye"></i></a>
                 <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="#">Card 1</a></h4>
-                <p>Card</p>
+                <h4><a href="#">Tu propio Software</a></h4>
+                <p>En tu propia computadora, tu propio sistema.</p>
               </div>
             </div>
           </div>
@@ -541,8 +542,9 @@
               </figure>
 
               <div class="portfolio-info">
-                <h4><a href="#">Web 1</a></h4>
-                <p>Web</p>
+                <h4><a href="#">Webs Adaptables</a></h4>
+                <p>Páginas Web adaptables para cualquier dispositivo.</p>
+                <p></p>
               </div>
             </div>
           </div>
@@ -554,7 +556,7 @@
 
     <!--==========================
       Clients Section
-    ============================-->
+    ============================
     <section id="clients" class="wow fadeInUp">
       <div class="container">
 
@@ -574,11 +576,11 @@
         </div>
 
       </div>
-    </section><!-- #clients -->
+    </section>--><!-- #clients -->
 
     <!--==========================
       Clients Section
-    ============================-->
+    ============================
     <section id="testimonials" class="section-bg wow fadeInUp">
       <div class="container">
 
@@ -646,7 +648,7 @@
         </div>
 
       </div>
-    </section><!-- #testimonials -->
+    </section>--><!-- #testimonials -->
 
     <!--==========================
       Team Section
@@ -658,21 +660,23 @@
           <p>Ellos son los responsables de hacer de tu empresa una de las mas reconocidas del mercado, confía en ellos, confia en Bluemax Technologys</p>
         </div>
 
-        <div class="row">
+        <div class="row padre">
         @foreach($equipo as $equipo)
-          <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+          <div class="col-lg-3 col-md-6 wow fadeInUp hijo" data-wow-delay="0.3s">
             <div class="member">
               <img  src="{{asset('../storage/app/'.$equipo->foto)}}" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
                   <h5 class="titulos">{{$equipo->apellidos}}</h5>
                   <h6>{{$equipo->name}}</h6>
+                  
                   <!--width="250" height="220"<span>Accountant</span>-->
                   <div class="social">
-                    <a href=""><i class="fa fa-twitter"></i></a>
+                  <h8>{{$equipo->email}}</h8>
+                   <!-- <a href=""><i class="fa fa-twitter"></i></a>
                     <a href=""><i class="fa fa-facebook"></i></a>
                     <a href=""><i class="fa fa-google-plus"></i></a>
-                    <a href=""><i class="fa fa-linkedin"></i></a>
+                    <a href=""><i class="fa fa-linkedin"></i></a>-->
                   </div>
                 </div>
               </div>
@@ -709,7 +713,7 @@
             <div class="contact-phone">
               <i class="ion-ios-telephone-outline"></i>
               <h3>Llámanos</h3>
-              <p><a href="tel:+155895548855">{{$empresa->telefono}}</a></p>
+              <p><a href="tel:{{$empresa->telefono}}">{{$empresa->telefono}}</a></p>
             </div>
           </div>
 
@@ -820,6 +824,7 @@
     </div>
 
     <div class="container">
+    <div>Iconos diseñados por <a href="https://www.flaticon.es/autores/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a></div>
       <div class="copyright">
         &copy; Copyright <strong>BizPage</strong>. All Rights Reserved
       </div>
