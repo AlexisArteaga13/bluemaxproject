@@ -13,7 +13,7 @@ class CategoriaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,6 +25,8 @@ class CategoriaRequest extends FormRequest
     {
         return [
             //
+            "nombre"=>"required|String|max:100",
+            "descripcion"=>"required",
         ];
     }
 }

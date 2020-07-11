@@ -1,7 +1,7 @@
 <div class="modal fade modal-slide-in-right" aria-hidden="true" role="dialog" tabindex="-1"
     id="modal-delete-{{$value->id}}">
 
-    <form action="{{route('encabezados.delete',$value->id)}}" method="post">
+    <form action="{{route('categorias.delete',$value->id)}}" method="post">
         {{method_field('delete')}}
         {{csrf_field()}}
         <div class="modal-dialog">
