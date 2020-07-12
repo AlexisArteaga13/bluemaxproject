@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <title>{{$empresa->nombre}}</title>
@@ -23,18 +23,18 @@
   <link href="lib/ionicons/css/ionicons.min.css" rel="stylesheet">
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-
+  
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
 <style>
   .padre {
-    align-items: center;
-  display: flex;
-  justify-content: center;
+    align-items: center !important;
+  display: flex !important;
+  justify-content: center !important;
 }
 .hijo {
-  padding: 10px;
-  margin: 10px;
+  padding: 10px !important;
+  margin: 10px !important;
  
 }
 .titulos{
@@ -393,7 +393,7 @@
     <!--==========================
       Portfolio Section
     ============================-->
-    <section id="portfolio"  class="section-bg" >
+    <section id="portfolio"  class="section-bg">
       <div class="container">
 
         <header class="section-header">
@@ -404,15 +404,34 @@
           <div class="col-lg-12">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">Todo</li>
-              <li data-filter=".filter-app">Móviles</li>
+              @foreach($categorias as $cat)
+              <li data-filter=".filter-{{$cat->id}}">{{$cat->nombre}}</li>
+              <!--<li data-filter=".filter-app">Móviles</li>
               <li data-filter=".filter-card">Escritorio</li>
-              <li data-filter=".filter-web">Web</li>
+              <li data-filter=".filter-web">Web</li>-->
+              @endforeach
             </ul>
           </div>
         </div>
 
-        <div class="row portfolio-container">
+        <div id="ajaxprod" class="row portfolio-container padre">
+        @foreach($productos as $prod)
+        <div class="hijo col-lg-4 col-md-6 portfolio-item filter-{{$prod->idcategoria}} wow fadeInUp">
+            <div class="portfolio-wrap">
+              <figure>
+                <img src="{{asset('../storage/app/'.$prod->imagen)}}" class="img-fluid" alt="">
+                <a href="{{asset('../storage/app/'.$prod->imagen)}}" data-lightbox="portfolio" data-title="{{$prod->nombre}}" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
+                <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a>
+              </figure>
 
+              <div class="portfolio-info">
+                <h4><a href="#">{{$prod->nombre}}</a></h4>
+                <p>{{$prod->descripcion}}</p>
+              </div>
+            </div>
+          </div>
+        @endforeach
+<!--
           <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
             <div class="portfolio-wrap">
               <figure>
@@ -548,7 +567,7 @@
               </div>
             </div>
           </div>
-
+-->
         </div>
 
       </div>
@@ -847,6 +866,7 @@
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v7.0" nonce="MXDXxCHU"></script>
   <!-- JavaScript Libraries -->
   <script src="lib/jquery/jquery.min.js"></script>
+  <script src="js/indexproduc.js"></script>
   <script src="lib/jquery/jquery-migrate.min.js"></script>
   <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="lib/easing/easing.min.js"></script>

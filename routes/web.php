@@ -30,6 +30,8 @@ Route::post('/admin/usuarios/crear', 'UsuariosController@store')->name('usuarios
 // *************************** //
 // AJAX DE FORMULARIO
 Route::post('/ajaxcorreo','IndexController@correo')->name('correo');
+// AJAX PARA PRODUCTOS
+Route::get('/ajaxproductos','IndexController@productos')->name('ajaxprod');
 // RUTAS PARA EL ENCABEZAADO
 Route::get('/admin/encabezados','SeccionEncabezadoController@index')->name('encabezados');
 Route::put('/admin/encabezados/update','SeccionEncabezadoController@update')->name('encabezados.update');

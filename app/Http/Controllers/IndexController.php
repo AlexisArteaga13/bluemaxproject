@@ -16,9 +16,18 @@ class IndexController extends Controller
         $encabezados= DB::table("seccion_encabezado")->get();
         $nosotros = DB::table("seccion_nosotros")->get();
         $servicios = DB::table("seccion_servicios")->get();
-        return view("index",compact("empresa","equipo","encabezados","nosotros","servicios"));
+        $categorias=DB::table('categoria')->get();
+        $productos=DB::table('producto as p')
+        ->join('categoria as c','p.idcategoria','c.id')->get();
+        return view("index",compact("empresa","equipo","categorias","encabezados","productos","nosotros","servicios"));
     }
+    public function productos(Request $request){
 
+        $productos=DB::table('producto as p')
+        ->join('categoria as c','p.idcategoria','c.id')->get();
+       // ->where('c.id',"=",$idcat);
+        return response()-> json($productos);
+    }
     public function correo(Request $request){
         
         if($request->ajax()){
