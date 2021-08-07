@@ -58,8 +58,9 @@
     <div class="container-fluid">
 
       <div id="logo" class="pull-left">
-      <a href="#intro"><img src="{{asset('../storage/app/'.$empresa->icono)}}" alt="" title="" /></a>
-        <!-- Uncomment below if you prefer to use an image logo<h1><a href="#" class="scrollto">{{$empresa->nombre}}</a></h1> -->
+      <a href="#intro"><img src="{{asset('../storage/app/'.$empresa->icono)}}" width="150px" height="50px" /></a>
+     
+      <!-- Uncomment below if you prefer to use an image logo<h1><a href="#" class="scrollto">{{$empresa->nombre}}</a></h1> -->
         <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
       </div>
 
@@ -70,14 +71,14 @@
           <li><a href="#services">Nuestros <br>Servicios</a></li>
           <li><a href="#portfolio">Esto <br>hacemos</a></li>
           <li><a href="#team">Nuestro<br>equipo</a></li>
-          <li class="menu-has-children"><a href="#">Drop Down</a>
+         <!-- <li class="menu-has-children"><a href="#">Drop Down</a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
               <li><a href="#">Drop Down 3</a></li>
               <li><a href="#">Drop Down 4</a></li>
               <li><a href="#">Drop Down 5</a></li>
             </ul>
-          </li>
+          </li>-->
           <li><a href="#contact">Contáctanos</a></li>
           <!--<li><a href="{{route('login')}}">Login</a></li>-->
         </ul>
@@ -168,9 +169,10 @@
 
         <header class="section-header">
           <h3>Nosotros</h3>
-          <p>Somos una empresa ligada al desarrollo de software, compuesto por personal altamente calificado para lograr la finalización y satisfacción del cliente en la encomendación de sus proyectos.
+          <p>Somos una empresa dedicada al desarrollo de software, y soluciones de infraestructura tecnológica, compuesto por ingenieros altamente capacitados para lograr la finalización y satisfacción del cliente en la encomendación de sus proyectos.
           </p>
           <p>Tenemos como responsabilidad hacer crecer tu negocio, y no descansamos hasta conseguirlo.</p>
+          <p>Asesoramiento gratuito a nuestros clientes. ¡La tecnología como un aliado!</p>
         </header>
 
         <div class="row about-cols padre">
@@ -240,7 +242,7 @@
 
         <header class="section-header">
           <h3>Servicios</h3>
-          <p>Te brindamos el mejor servicio, una constante comunicación directa, atendiendo todas tus solicitudes, desarrollando software a tu medida .</p>
+          <p>Te brindamos el mejor servicio, una constante comunicación directa, atendiendo todas tus solicitudes, desarrollando software y soluciones tecnológicas a tu medida. Siempre monitorizamos nuestros servicios con nuestros clientes, para satisfacer las necesidades constantes de nuestros clientes.</p>
         </header>
 
         <div class="row about-cols padre">
@@ -302,6 +304,8 @@
       <div class="container text-center">
         <h3>Innova con nosotros</h3>
         <p> Implementa tus propias aplicaciones móviles integradas con tu web y aplicaciones de escritorio, lograrás optimizar tu negocio, atención rápida a tus clientes brindandoles calidad en servicio y fidelidad de parte de ellos.</p>
+     
+        <p> Además de soluciones tecnológicas y asesoramientos gratuitos a nuestros clientes, para que la tecnología sea un aliado en tu negocio.</p>
         <a class="cta-btn" href="https://wa.link/41p2gj">Comunícate con nosotros vía whatsapp</a>
         <p></p>
       </div>
@@ -337,7 +341,11 @@
               <span class="skill">APLICACIONES DE ESCRITORIO <i class="val">100%</i></span>
             </div>
           </div>
-
+          <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+              <span class="skill">REDES DE COMPUTADORAS <i class="val">100%</i></span>
+            </div>
+          </div>
           <div class="progress">
             <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
               <span class="skill">ATENCIÓN Y SOPORTE 24 HRS. <i class="val">100%</i></span>
@@ -676,7 +684,7 @@
       <div class="container">
         <div class="section-header wow fadeInUp">
           <h3>Te presentamos nuestro equipo</h3>
-          <p>Ellos son los responsables de hacer de tu empresa una de las mas reconocidas del mercado, confía en ellos, confia en Bluemax Technologys</p>
+          <p>Ellos son los responsables de hacer de tu empresa una de las mas reconocidas del mercado, confía en ellos, confia en TIDev</p>
         </div>
 
         <div class="row padre">
@@ -794,7 +802,7 @@
 
           <div class="col-lg-3 col-md-6 footer-info">
             <h3>{{$empresa->nombre}}</h3>
-            <p>Empresa dedicada al rubro del desarrollo de software, no descansamos hasta verte crecer.</p>
+            <p>Empresa dedicada al rubro del desarrollo de software estandar y a medida, además de soluciones de infraestructura tecnológica, no descansamos hasta verte crecer.</p>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
@@ -843,18 +851,10 @@
     </div>
 
     <div class="container">
-    <div>Iconos diseñados por <a href="https://www.flaticon.es/autores/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a></div>
+    
+      
       <div class="copyright">
-        &copy; Copyright <strong>BizPage</strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!--
-          All the links in the footer should remain intact.
-          You can delete the links only if you purchased the pro version.
-          Licensing information: https://bootstrapmade.com/license/
-          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=BizPage
-        -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      @include("footer")
       </div>
     </div>
   </footer><!-- #footer -->
